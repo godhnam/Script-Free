@@ -2538,7 +2538,11 @@ function Luna:CreateWindow(WindowSettings)
 		end
 
 		local HomeTabPage = Elements.Home
-		HomeTabPage.Visible = true
+        HomeTabPage.Visible = true
+
+        pcall(function()
+	       HomeTabPage.detailsholder.dashboard.Friends:Destroy()
+        end)
 
 		function HomeTab:Activate()
 			tween(HomeTabButton.ImageLabel, {ImageColor3 = Color3.fromRGB(255,255,255)})
